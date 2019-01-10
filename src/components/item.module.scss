@@ -1,0 +1,29 @@
+@import '../index.module.scss';
+
+.item {
+    background-color: $primary-color-3;
+    border: 2px solid #7f7f7f;
+    border-radius: 8px;
+    font-family: Roboto;
+    margin: 15px;
+    padding: 20px;
+
+    dl {
+        display: flex;
+        flex-direction: row;
+    }
+
+    dt {
+        flex-basis: 30%;
+    }
+
+    dd {
+        flex-basis: 70%;
+        margin-left: 8px;;
+    }
+
+    &__id {
+        font-size: 16px;
+        text-transform: uppercase;
+    }
+}
