@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import stuff from './stuffReducer';
+import earthquakes from './featuresReducer';
 
 const rootReducer = combineReducers({
-  stuff
+  earthquakes
 });
 
 export default rootReducer;

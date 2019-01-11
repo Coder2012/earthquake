@@ -1,3 +1,5 @@
 export default {
-    stuff: [1,2,3]
-  };
+  features: [],
+  magFilter: "",
+  magTypeFilter: ""
+};
