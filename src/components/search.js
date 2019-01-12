@@ -1,26 +1,27 @@
 import React, { Component } from "react";
 import Button from "./button";
+import Input from './input';
 
 class Search extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       term: ""
     };
     this.inputChangeHandler = this.inputChangeHandler.bind(this);
     this.searchTermHandler = this.searchTermHandler.bind(this);
   }
-  inputChangeHandler(event) {
-    this.setState({ term: event.target.value });
+  inputChangeHandler(value) {
+    this.setState({ term: value });
   }
   searchTermHandler() {
-    console.log("searchTermHandler");
     this.props.filterHandler(this.state.term);
   }
   render() {
     return (
       <section>
-        <input type="text" value={this.state.term} onChange={this.inputChangeHandler}/>
+        <h2>{this.props.title}</h2>
+        <Input inputChangeHandler={this.inputChangeHandler}/>
         <Button clickHandler={this.searchTermHandler} />
       </section>
     );

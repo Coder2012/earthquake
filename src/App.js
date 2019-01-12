@@ -27,10 +27,8 @@ class App extends Component {
     return (
       <div className="App">
         <section>
-          <h2>Filter by magnitude:</h2>
-          <Search filterHandler={this.magnitudeFilterHandler} />
-          <h2>Filter by magnitude type:</h2>
-          <Search filterHandler={this.magnitudeTypeFilterHandler} />
+          <Search title={`Filter by magnitude`} filterHandler={this.magnitudeFilterHandler} />
+          <Search title={`Filter by magnitude type`} filterHandler={this.magnitudeTypeFilterHandler} />
         </section>
         <FeaturesList />
       </div>

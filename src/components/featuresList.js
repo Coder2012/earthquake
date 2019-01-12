@@ -6,8 +6,33 @@ import React from "react";
 import Item from "./item";
 
 class stuffList extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
   componentWillMount() {
     this.props.earthquakeActions.fetchEarthquakes();
+  }
+
+  getFilteredFeatures() {
+    const features = this.props.features
+      .filter(item => {
+        if (this.props.magFilter !== "") {
+          return Math.floor(item.properties.mag) === parseInt(this.props.magFilter);
+        }
+        return true;
+      })
+      .filter(item => {
+        if (this.props.magTypeFilter !== "") {
+          return item.properties.magType === this.props.magTypeFilter;
+        }
+        return true;
+      })
+      .map(item => {
+        return this.renderItem(item.id, item.properties);
+      });
+
+    return { features, count: features.length };
   }
 
   renderItem(id, properties) {
@@ -15,29 +40,15 @@ class stuffList extends React.Component {
   }
 
   render() {
+    const filteredFeatures = this.getFilteredFeatures();
+
     if (!this.props.features.length > 0) {
       return <div>Loading Stuff...</div>;
     } else {
       return (
         <div className="">
-          {this.props.features.length}
-          {this.props.features.length > 3 &&
-            this.props.features
-              .filter(item => {
-                if (this.props.magFilter !== "") {
-                  return Math.floor(item.properties.mag) === parseInt(this.props.magFilter);
-                }
-                return true;
-              })
-              .filter(item => {
-                if (this.props.magTypeFilter !== "") {
-                  return item.properties.magType === this.props.magTypeFilter;
-                }
-                return true;
-              })
-              .map(item => {
-                return this.renderItem(item.id, item.properties);
-              })}
+          {filteredFeatures.count > 0 ? `${filteredFeatures.count} Result(s) found` : `None found`}
+          {this.props.features.length && filteredFeatures.features}
         </div>
       );
     }
