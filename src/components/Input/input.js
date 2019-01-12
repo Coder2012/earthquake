@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { ReactComponent as ResetIcon } from "../assets/icons8-cancel.svg";
+import { ReactComponent as ResetIcon } from "../../assets/icons8-cancel.svg";
+import Styles from './input.module.scss';
 
 class Input extends Component {
   constructor(props) {
@@ -34,13 +35,14 @@ class Input extends Component {
 
   render() {
     return (
-      <div>
+      <div className={Styles.wrapper}>
         <input
+          className={this.props.style}
           type="text"
           value={this.state.term}
           onChange={this.changeHandler}
         />
-        {this.state.term !== "" && <ResetIcon onClick={this.resetHandler} />}
+        {this.state.term !== "" && <ResetIcon className={Styles.icon} onClick={this.resetHandler} />}
       </div>
     );
   }

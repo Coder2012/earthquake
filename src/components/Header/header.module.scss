@@ -1,0 +1,13 @@
+@import '../../index.module.scss';
+
+.filters {
+    background-color: $primary-color-1;
+    color: $primary-color-3;
+    display: flex;
+    box-shadow: 0px 3px 10px 2px rgba(0,0,0,0.75);
+    justify-content: space-evenly;
+    padding: 15px;
+    position: fixed;
+    text-transform: uppercase;
+    width: 100vw;
+  }

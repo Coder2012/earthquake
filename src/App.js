@@ -2,15 +2,17 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import FeaturesList from "./components/featuresList";
-import Search from "./components/search";
+import FeaturesList from "./components/FeaturesList/featuresList";
 import * as earthquakeActions from "./actions/earthquakeActions";
+import Header from "./components/Header/header";
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.magnitudeFilterHandler = this.magnitudeFilterHandler.bind(this);
-    this.magnitudeTypeFilterHandler = this.magnitudeTypeFilterHandler.bind(this);
+    this.magnitudeTypeFilterHandler = this.magnitudeTypeFilterHandler.bind(
+      this
+    );
   }
 
   magnitudeFilterHandler(value) {
@@ -26,10 +28,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <section>
-          <Search title={`Filter by magnitude`} filterHandler={this.magnitudeFilterHandler} />
-          <Search title={`Filter by magnitude type`} filterHandler={this.magnitudeTypeFilterHandler} />
-        </section>
+        <Header magnitudeFilterHandler={this.magnitudeFilterHandler} magnitudeTypeFilterHandler={this.magnitudeTypeFilterHandler} />
         <FeaturesList />
       </div>
     );

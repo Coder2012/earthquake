@@ -1,4 +1,4 @@
-@import '../index.module.scss';
+@import '../../index.module.scss';
 
 .item {
     background-color: $primary-color-3;
@@ -7,6 +7,7 @@
     font-family: Roboto;
     margin: 15px;
     padding: 20px;
+    flex: 1 0 45%;
 
     dl {
         display: flex;

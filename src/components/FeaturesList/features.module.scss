@@ -1,0 +1,16 @@
+.features {
+    padding: 120px 0;
+    &__count {
+        font-size: 28px;
+        font-weight: bold;
+        text-align: center;
+        margin: 10px;
+    }
+
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        max-width: 1440px;
+    }
+}

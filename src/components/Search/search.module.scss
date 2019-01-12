@@ -1,0 +1,15 @@
+.search {
+  &__controls {
+    display: flex;
+    margin-top: 5px;
+  }  
+
+  &__input {
+    border: none;
+    font-weight: bold;
+    padding: 5px;
+    width: 100px;
+    height: 30px;
+  }
+
+}
