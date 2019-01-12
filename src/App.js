@@ -9,26 +9,56 @@ import Header from "./components/Header/header";
 class App extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      magFilter: "",
+      magTypeFilter: ""
+    };
+
     this.magnitudeFilterHandler = this.magnitudeFilterHandler.bind(this);
     this.magnitudeTypeFilterHandler = this.magnitudeTypeFilterHandler.bind(
       this
-    );
+      );
+      this.searchTermHandler = this.searchTermHandler.bind(this);
   }
 
   magnitudeFilterHandler(value) {
     console.log("magnitudeFilterHandler", value);
-    this.props.earthquakeActions.filterMagnitude(value);
+    this.setState(
+      prevState => {
+        return { magFilter: value };
+      },
+      () => {
+        
+      }
+    );
   }
 
   magnitudeTypeFilterHandler(value) {
     console.log("magnitudeTypeFilterHandler", value);
-    this.props.earthquakeActions.filterMagnitudeType(value);
+    this.setState(
+      prevState => {
+        return { magTypeFilter: value };
+      },
+      () => {
+        
+      }
+    );
+  }
+
+  searchTermHandler() {
+    this.props.earthquakeActions.filterMagnitude(this.state.magFilter);
+    this.props.earthquakeActions.filterMagnitudeType(this.state.magTypeFilter);
   }
 
   render() {
     return (
       <div className="App">
-        <Header magnitudeFilterHandler={this.magnitudeFilterHandler} magnitudeTypeFilterHandler={this.magnitudeTypeFilterHandler} />
+        <Header
+          magnitudeFilterHandler={this.magnitudeFilterHandler}
+          magnitudeTypeFilterHandler={this.magnitudeTypeFilterHandler}
+          searchTermHandler={this.searchTermHandler}
+        />
         <FeaturesList />
       </div>
     );
