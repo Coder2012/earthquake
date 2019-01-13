@@ -10,7 +10,7 @@ import {
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-describe("earthquakeActions test suite", () => {
+describe("EarthquakeActions test suite", () => {
   test("returns an action with type `FILTER_MAGNITUDE`", () => {
     const action = filterMagnitude();
     expect(action).toEqual({ type: actionTypes.FILTER_MAGNITUDE });
