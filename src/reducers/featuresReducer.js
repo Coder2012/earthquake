@@ -4,7 +4,7 @@ import {
   RECEIVE_EARTHQUAKES,
   FILTER_MAGNITUDE,
   FILTER_MAGNITUDE_TYPE
-} from "../actions/allActions";
+} from "../actions/actionTypes";
 
 export default function earthquakes(state = initialState, { type, features, magFilter, magTypeFilter }) {
   if (!type) {

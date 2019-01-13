@@ -37,6 +37,7 @@ class Input extends Component {
     return (
       <div className={Styles.wrapper}>
         <input
+          data-test="input"
           className={this.props.style}
           type="text"
           value={this.state.term}
