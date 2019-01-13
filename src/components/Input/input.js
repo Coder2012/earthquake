@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import propTypes from 'prop-types';
 import { ReactComponent as ResetIcon } from "../../assets/icons8-cancel.svg";
 import Styles from './input.module.scss';
 
@@ -48,4 +49,10 @@ class Input extends Component {
     );
   }
 }
+
+Input.propTypes = {
+  inputChangeHandler: propTypes.func,
+  style: propTypes.string
+}
+
 export default Input;

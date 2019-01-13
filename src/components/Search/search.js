@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import propTypes from 'prop-types'
 import Button from "../Button/button";
 import Input from "../Input/input";
 import Styles from "./search.module.scss";
@@ -42,6 +43,12 @@ class Search extends Component {
       </section>
     );
   }
+}
+
+Search.propTypes = {
+  filterHandler: propTypes.func,
+  searchTermHandler: propTypes.func,
+  title: propTypes.string
 }
 
 export default Search;
