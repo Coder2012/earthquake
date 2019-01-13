@@ -8,7 +8,7 @@ This is a small app I built for a technical test, this was built using:
 * React
 * Redux
 
-![alt text](https://github.com/Coder2012/pig/blob/master/screenshots/pig_game-mobile.png "PIG screenshot")
+![alt text](https://github.com/Coder2012/earthquake/blob/master/screenshots/earthquake-mobile.png "Earthquake screenshot")
 
 ### Quick start
 
@@ -37,6 +37,10 @@ npm test
 
 NOTE: Puppeteer is used for E2E testing, currently this may fail the first time, just run the tests again!
 ```
+
+### Live url
+
+Project can be viewed [on netlify](https://thirsty-mcnulty-357012.netlify.com/)
 
 ## Developing
 
