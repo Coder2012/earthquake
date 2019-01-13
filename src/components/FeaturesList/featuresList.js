@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import Item from "../Item/item";
 import Styles from "./features.module.scss";
 
-class featuresList extends React.Component {
+class FeaturesList extends React.Component {
   componentWillMount() {
     this.props.earthquakeActions.fetchEarthquakes();
   }
@@ -58,7 +58,7 @@ class featuresList extends React.Component {
   }
 }
 
-featuresList.propTypes = {
+FeaturesList.propTypes = {
   earthquakeActions: PropTypes.object,
   features: PropTypes.array,
   magFilter: PropTypes.string,
@@ -82,4 +82,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(featuresList);
+)(FeaturesList);
