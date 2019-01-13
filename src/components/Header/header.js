@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from 'prop-types'
 import Search from "../Search/search";
 import Styles from './header.module.scss';
 
@@ -10,5 +11,11 @@ const Header = ({ searchTermHandler, magnitudeFilterHandler, magnitudeTypeFilter
     </header>
   );
 };
+
+Header.propTypes = {
+  searchTermHandler: propTypes.func,
+  magnitudeFilterHandler: propTypes.func,
+  magnitudeTypeFilterHandler: propTypes.func
+}
 
 export default Header;

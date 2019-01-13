@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from 'prop-types';
 import ItemStyles from "./item.module.scss";
 
 const Item = ({ id, properties }) => {
@@ -24,5 +25,10 @@ const Item = ({ id, properties }) => {
     </section>
   );
 };
+
+Item.propTypes = {
+  id: propTypes.string,
+  properties: propTypes.object
+}
 
 export default Item;
