@@ -23,27 +23,17 @@ class App extends Component {
   }
 
   magnitudeFilterHandler(value) {
-    console.log("magnitudeFilterHandler", value);
     this.setState(
       prevState => {
         return { magFilter: value };
-      },
-      () => {
-        
-      }
-    );
+      });
   }
 
   magnitudeTypeFilterHandler(value) {
-    console.log("magnitudeTypeFilterHandler", value);
     this.setState(
       prevState => {
         return { magTypeFilter: value };
-      },
-      () => {
-        
-      }
-    );
+      });
   }
 
   searchTermHandler() {

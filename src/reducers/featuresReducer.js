@@ -13,10 +13,8 @@ export default function earthquakes(state = initialState, { type, features, magF
 
   switch (type) {
     case FETCH_EARTHQUAKES:
-      console.log("FETCH_EARTHQUAKES Action");
       return;
     case RECEIVE_EARTHQUAKES:
-      console.log("RECEIVE_EARTHQUAKES Action: ", features.length);
       return {
         ...state,
         features
