@@ -35,7 +35,6 @@ go to [http://localhost:3000](http://localhost:3000) in your browser.
 ```
 npm test
 
-NOTE: Puppeteer is used for E2E testing, currently this may fail the first time, just run the tests again!
 ```
 
 ### Live url
