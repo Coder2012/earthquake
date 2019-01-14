@@ -7,6 +7,7 @@ This is a small app I built for a technical test, this was built using:
 * Create react app
 * React
 * Redux
+* CSS Modules
 
 ![alt text](https://github.com/Coder2012/earthquake/blob/master/screenshots/earthquake-mobile.png "Earthquake screenshot")
 
