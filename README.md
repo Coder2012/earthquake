@@ -7,6 +7,7 @@ This is a small app I built for a technical test, this was built using:
 * Create react app
 * React
 * Redux
+* CSS Modules
 
 ![alt text](https://github.com/Coder2012/earthquake/blob/master/screenshots/earthquake-mobile.png "Earthquake screenshot")
 
@@ -35,7 +36,6 @@ go to [http://localhost:3000](http://localhost:3000) in your browser.
 ```
 npm test
 
-NOTE: Puppeteer is used for E2E testing, currently this may fail the first time, just run the tests again!
 ```
 
 ### Live url

@@ -1,4 +1,4 @@
-import initialState from "./initialState";
+import initialState from "../store/initialState";
 import {
   FETCH_EARTHQUAKES,
   RECEIVE_EARTHQUAKES,
@@ -7,13 +7,9 @@ import {
 } from "../actions/actionTypes";
 
 export default function earthquakes(state = initialState, { type, features, magFilter, magTypeFilter }) {
-  if (!type) {
-    return state;
-  }
-
   switch (type) {
     case FETCH_EARTHQUAKES:
-      return;
+      return state;
     case RECEIVE_EARTHQUAKES:
       return {
         ...state,

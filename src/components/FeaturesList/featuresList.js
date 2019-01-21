@@ -42,7 +42,7 @@ class FeaturesList extends React.Component {
     const filteredFeatures = this.getFilteredFeatures();
 
     if (!this.props.features.length > 0) {
-      return <div>Loading Stuff...</div>;
+      return <div>Loading earthquake data...</div>;
     } else {
       return (
         <div className={Styles.features}>
