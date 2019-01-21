@@ -7,6 +7,27 @@ import { ReactComponent as ResetIcon } from "../../assets/icons8-cancel.svg";
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 describe("Input test suite", () => {
+  let term = 'ml';
+  let inputChangeHandlerCalled = false;
+  
+  const defaultProps = {
+    term: term,
+
+    inputChangeHandler(value) {
+      inputChangeHandlerCalled = true;
+    }
+  }
+
+  test('Input calls inputChangeHandler with correct value', () => {
+    const wrapper = shallow(<Input {...defaultProps} />);
+    const input = wrapper.find('input');
+
+    input.simulate('change', { target: { value: 'ml'}});
+
+    expect(term).toEqual('ml');
+    expect(inputChangeHandlerCalled).toBe(true);
+  });
+
   test("Input renders without error", () => {
     const wrapper = shallow(<Input />);
 
