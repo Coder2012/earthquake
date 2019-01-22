@@ -1,4 +1,4 @@
-import * as actionTypes from "./actionTypes";
+import * as actionTypes from './actionTypes';
 
 export function receiveEarthquakes(data) {
   const { features } = data;
@@ -16,7 +16,7 @@ export function filterMagnitudeType(value) {
 export function fetchEarthquakes() {
   return dispatch => {
     fetch(
-      "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2014-01-01&endtime=2014-01-02"
+      'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2014-01-01&endtime=2014-01-02'
     )
       .then(response =>
         response.json().then(data => ({

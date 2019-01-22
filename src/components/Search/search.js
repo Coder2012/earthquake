@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import propTypes from 'prop-types'
-import Button from "../Button/button";
-import Input from "../Input/input";
-import Styles from "./search.module.scss";
+import React, { Component } from 'react';
+import propTypes from 'prop-types';
+import Button from '../Button/button';
+import Input from '../Input/input';
+import Styles from './search.module.scss';
 
 class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      term: ""
+      term: ''
     };
     this.inputChangeHandler = this.inputChangeHandler.bind(this);
     this.searchTermHandler = this.searchTermHandler.bind(this);
@@ -49,6 +49,6 @@ Search.propTypes = {
   filterHandler: propTypes.func,
   searchTermHandler: propTypes.func,
   title: propTypes.string
-}
+};
 
 export default Search;

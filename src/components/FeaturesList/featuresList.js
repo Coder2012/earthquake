@@ -1,10 +1,10 @@
-import React from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import * as earthquakeActions from "../../actions/earthquakeActions";
-import PropTypes from "prop-types";
-import Item from "../Item/item";
-import Styles from "./features.module.scss";
+import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as earthquakeActions from '../../actions/earthquakeActions';
+import PropTypes from 'prop-types';
+import Item from '../Item/item';
+import Styles from './features.module.scss';
 
 class FeaturesList extends React.Component {
   componentWillMount() {
@@ -14,7 +14,7 @@ class FeaturesList extends React.Component {
   getFilteredFeatures() {
     const features = this.props.features
       .filter(item => {
-        if (this.props.magFilter !== "") {
+        if (this.props.magFilter !== '') {
           return (
             Math.floor(item.properties.mag) === parseInt(this.props.magFilter)
           );
@@ -22,7 +22,7 @@ class FeaturesList extends React.Component {
         return true;
       })
       .filter(item => {
-        if (this.props.magTypeFilter !== "") {
+        if (this.props.magTypeFilter !== '') {
           return item.properties.magType === this.props.magTypeFilter;
         }
         return true;
@@ -40,6 +40,7 @@ class FeaturesList extends React.Component {
 
   render() {
     const filteredFeatures = this.getFilteredFeatures();
+    console.log('render');
 
     if (!this.props.features.length > 0) {
       return <div>Loading earthquake data...</div>;
@@ -51,7 +52,9 @@ class FeaturesList extends React.Component {
               ? `${filteredFeatures.count} Result(s) found`
               : `None found`}
           </div>
-          <div className={Styles.features__items}>{this.props.features.length && filteredFeatures.features}</div>
+          <div className={Styles.features__items}>
+            {this.props.features.length && filteredFeatures.features}
+          </div>
         </div>
       );
     }

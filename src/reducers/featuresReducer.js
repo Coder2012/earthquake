@@ -1,12 +1,15 @@
-import initialState from "../store/initialState";
+import initialState from '../store/initialState';
 import {
   FETCH_EARTHQUAKES,
   RECEIVE_EARTHQUAKES,
   FILTER_MAGNITUDE,
   FILTER_MAGNITUDE_TYPE
-} from "../actions/actionTypes";
+} from '../actions/actionTypes';
 
-export default function earthquakes(state = initialState, { type, features, magFilter, magTypeFilter }) {
+export default function earthquakes(
+  state = initialState,
+  { type, features, magFilter, magTypeFilter }
+) {
   switch (type) {
     case FETCH_EARTHQUAKES:
       return state;
@@ -14,18 +17,18 @@ export default function earthquakes(state = initialState, { type, features, magF
       return {
         ...state,
         features
-      }
+      };
     case FILTER_MAGNITUDE:
       return {
         ...state,
         magFilter
-      }
+      };
 
-      case FILTER_MAGNITUDE_TYPE:
+    case FILTER_MAGNITUDE_TYPE:
       return {
         ...state,
         magTypeFilter
-      }
+      };
 
     default:
       return state;

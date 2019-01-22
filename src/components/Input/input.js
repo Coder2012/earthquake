@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import propTypes from 'prop-types';
-import { ReactComponent as ResetIcon } from "../../assets/icons8-cancel.svg";
+import { ReactComponent as ResetIcon } from '../../assets/icons8-cancel.svg';
 import Styles from './input.module.scss';
 
 class Input extends Component {
@@ -8,7 +8,7 @@ class Input extends Component {
     super(props);
 
     this.state = {
-      term: ""
+      term: ''
     };
 
     this.resetHandler = this.resetHandler.bind(this);
@@ -23,7 +23,7 @@ class Input extends Component {
     this.updateState(event.target.value);
   }
 
-  updateState(value = "") {
+  updateState(value = '') {
     this.setState(
       prevState => {
         return { term: value };
@@ -44,7 +44,9 @@ class Input extends Component {
           value={this.state.term}
           onChange={this.changeHandler}
         />
-        {this.state.term !== "" && <ResetIcon className={Styles.icon} onClick={this.resetHandler} />}
+        {this.state.term !== '' && (
+          <ResetIcon className={Styles.icon} onClick={this.resetHandler} />
+        )}
       </div>
     );
   }
@@ -53,6 +55,6 @@ class Input extends Component {
 Input.propTypes = {
   inputChangeHandler: propTypes.func,
   style: propTypes.string
-}
+};
 
 export default Input;

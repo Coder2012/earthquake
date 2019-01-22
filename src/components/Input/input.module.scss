@@ -1,14 +1,14 @@
 .wrapper {
-    position: relative;
-    margin-right: 5px;
+  position: relative;
+  margin-right: 5px;
 }
 
 .icon {
-    $size: 22px;
-    position: absolute;
-    right: 4px;
-    top: 50%;
-    width: $size;
-    height: $size;
-    transform: translateY(-50%);
+  $size: 22px;
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  width: $size;
+  height: $size;
+  transform: translateY(-50%);
 }

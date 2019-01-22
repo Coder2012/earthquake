@@ -1,39 +1,37 @@
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import FeaturesList from "./components/FeaturesList/featuresList";
-import * as earthquakeActions from "./actions/earthquakeActions";
-import Header from "./components/Header/header";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import FeaturesList from './components/FeaturesList/featuresList';
+import * as earthquakeActions from './actions/earthquakeActions';
+import Header from './components/Header/header';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      magFilter: "",
-      magTypeFilter: ""
+      magFilter: '',
+      magTypeFilter: ''
     };
 
     this.magnitudeFilterHandler = this.magnitudeFilterHandler.bind(this);
     this.magnitudeTypeFilterHandler = this.magnitudeTypeFilterHandler.bind(
       this
-      );
-      this.searchTermHandler = this.searchTermHandler.bind(this);
+    );
+    this.searchTermHandler = this.searchTermHandler.bind(this);
   }
 
   magnitudeFilterHandler(value) {
-    this.setState(
-      prevState => {
-        return { magFilter: value };
-      });
+    this.setState(prevState => {
+      return { magFilter: value };
+    });
   }
 
   magnitudeTypeFilterHandler(value) {
-    this.setState(
-      prevState => {
-        return { magTypeFilter: value };
-      });
+    this.setState(prevState => {
+      return { magTypeFilter: value };
+    });
   }
 
   searchTermHandler() {
