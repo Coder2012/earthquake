@@ -2,34 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as earthquakeActions from '../../actions/earthquakeActions';
+import { filterByMag, filterByMagFilter } from '../../helpers/filters';
 import PropTypes from 'prop-types';
 import Item from '../Item/item';
 import Styles from './features.module.scss';
 
-class FeaturesList extends React.Component {
+export class FeaturesList extends React.Component {
   componentWillMount() {
     this.props.earthquakeActions.fetchEarthquakes();
   }
 
   getFilteredFeatures() {
-    const features = this.props.features
-      .filter(item => {
-        if (this.props.magFilter !== '') {
-          return (
-            Math.floor(item.properties.mag) === parseInt(this.props.magFilter)
-          );
-        }
-        return true;
-      })
-      .filter(item => {
-        if (this.props.magTypeFilter !== '') {
-          return item.properties.magType === this.props.magTypeFilter;
-        }
-        return true;
-      })
-      .map(item => {
-        return this.renderItem(item.id, item.properties);
-      });
+    const magFiltered = filterByMag(this.props.features);
+    const features = filterByMagFilter(magFiltered).map(item => {
+      return this.renderItem(item.id, item.properties);
+    });
 
     return { features, count: features.length };
   }
@@ -52,7 +39,7 @@ class FeaturesList extends React.Component {
               ? `${filteredFeatures.count} Result(s) found`
               : `None found`}
           </div>
-          <div className={Styles.features__items}>
+          <div data-test="featuresList" className={Styles.features__items}>
             {this.props.features.length && filteredFeatures.features}
           </div>
         </div>
