@@ -13,8 +13,11 @@ export class FeaturesList extends React.Component {
   }
 
   getFilteredFeatures() {
-    const magFiltered = filterByMag(this.props.features);
-    const features = filterByMagFilter(magFiltered).map(item => {
+    const magFiltered = filterByMag(this.props.features, this.props.magFilter);
+    const features = filterByMagFilter(
+      magFiltered,
+      this.props.magTypeFilter
+    ).map(item => {
       return this.renderItem(item.id, item.properties);
     });
 
