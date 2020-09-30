@@ -1,9 +1,9 @@
-import React from 'react';
-import propTypes from 'prop-types';
-import ItemStyles from './item.module.scss';
+import React from 'react'
+import propTypes from 'prop-types'
+import ItemStyles from './item.module.scss'
 
-const Item = ({ id, properties }) => {
-  const { place, mag, magType } = properties;
+export const Item = ({ id, properties }) => {
+  const { place, mag, magType } = properties
 
   return (
     <section className={ItemStyles.item}>
@@ -23,12 +23,10 @@ const Item = ({ id, properties }) => {
         </dd>
       </dl>
     </section>
-  );
-};
+  )
+}
 
 Item.propTypes = {
   id: propTypes.string,
-  properties: propTypes.object
-};
-
-export default Item;
+  properties: propTypes.object,
+}

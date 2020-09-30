@@ -1,76 +1,39 @@
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import FeaturesList from './components/FeaturesList/featuresList';
-import * as earthquakeActions from './actions/earthquakeActions';
-import Header from './components/Header/header';
+import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
+import { useSelector, useDispatch } from 'react-redux'
+import { getFilteredFeatures } from './selectors'
+import { FeaturesList } from './components/FeaturesList/featuresList'
+import * as earthquakeActions from './actions/earthquakeActions'
+import Header from './components/Header/header'
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+export const App = () => {
+  const dispatch = useDispatch()
+  const features = useSelector(getFilteredFeatures)
+  const [magFilter, setMagFilter] = useState('')
+  const [magTypeFilter, setMagTypeFilter] = useState('')
 
-    this.state = {
-      magFilter: '',
-      magTypeFilter: ''
-    };
+  useEffect(() => {
+    dispatch(earthquakeActions.fetchEarthquakes())
+  }, [dispatch])
 
-    this.magnitudeFilterHandler = this.magnitudeFilterHandler.bind(this);
-    this.magnitudeTypeFilterHandler = this.magnitudeTypeFilterHandler.bind(
-      this
-    );
-    this.searchTermHandler = this.searchTermHandler.bind(this);
+  const searchTermHandler = () => {
+    dispatch(earthquakeActions.filterMagnitude(magFilter))
+    dispatch(earthquakeActions.filterMagnitudeType(magTypeFilter))
   }
 
-  magnitudeFilterHandler(value) {
-    this.setState(prevState => {
-      return { magFilter: value };
-    });
-  }
-
-  magnitudeTypeFilterHandler(value) {
-    this.setState(prevState => {
-      return { magTypeFilter: value };
-    });
-  }
-
-  searchTermHandler() {
-    this.props.earthquakeActions.filterMagnitude(this.state.magFilter);
-    this.props.earthquakeActions.filterMagnitudeType(this.state.magTypeFilter);
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <Header
-          magnitudeFilterHandler={this.magnitudeFilterHandler}
-          magnitudeTypeFilterHandler={this.magnitudeTypeFilterHandler}
-          searchTermHandler={this.searchTermHandler}
-        />
-        <FeaturesList />
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <Header
+        magnitudeFilterHandler={(value) => setMagFilter(value)}
+        magnitudeTypeFilterHandler={(value) => setMagTypeFilter(value)}
+        searchTermHandler={searchTermHandler}
+      />
+      <FeaturesList features={features} />
+    </div>
+  )
 }
 
 App.propTypes = {
   earthquakeActions: PropTypes.object,
-  features: PropTypes.array
-};
-
-function mapStateToProps({ earthquakes }) {
-  return {
-    features: earthquakes.features
-  };
+  features: PropTypes.array,
 }
-
-function mapDispatchToProps(dispatch) {
-  return {
-    earthquakeActions: bindActionCreators(earthquakeActions, dispatch)
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
