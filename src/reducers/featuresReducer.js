@@ -1,36 +1,10 @@
-import initialState from '../store/initialState';
-import {
-  FETCH_EARTHQUAKES,
-  RECEIVE_EARTHQUAKES,
-  FILTER_MAGNITUDE,
-  FILTER_MAGNITUDE_TYPE
-} from '../actions/actionTypes';
+import { createReducer } from '../utils/redux'
+import initialState from '../store/initialState'
+import { FETCH_EARTHQUAKES, RECEIVE_EARTHQUAKES, FILTER_MAGNITUDE, FILTER_MAGNITUDE_TYPE } from '../actions/actionTypes'
 
-export default function earthquakes(
-  state = initialState,
-  { type, features, magFilter, magTypeFilter }
-) {
-  switch (type) {
-    case FETCH_EARTHQUAKES:
-      return state;
-    case RECEIVE_EARTHQUAKES:
-      return {
-        ...state,
-        features
-      };
-    case FILTER_MAGNITUDE:
-      return {
-        ...state,
-        magFilter
-      };
-
-    case FILTER_MAGNITUDE_TYPE:
-      return {
-        ...state,
-        magTypeFilter
-      };
-
-    default:
-      return state;
-  }
-}
+export const earthquakes = createReducer(initialState, {
+  [FETCH_EARTHQUAKES]: (state) => state,
+  [RECEIVE_EARTHQUAKES]: (state, { features }) => ({ ...state, features }),
+  [FILTER_MAGNITUDE]: (state, { magFilter }) => ({ ...state, magFilter }),
+  [FILTER_MAGNITUDE_TYPE]: (state, { magTypeFilter }) => ({ ...state, magTypeFilter }),
+})
