@@ -42,7 +42,7 @@ npm test
 
 ### Live url
 
-Project can be viewed [on netlify](https://thirsty-mcnulty-357012.netlify.com/)
+Project can be viewed [on netlify](https://earthquake-test.netlify.app/)
 
 ## Developing
 
