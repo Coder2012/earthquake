@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+[![Actions Status](https://github.com/Coder2012/earthquake/workflows/Node.js%20CI/badge.svg)](https://github.com/Coder2012/earthquake/actions)
+
 # Earthquake
 
 This is a small app I built for a technical test, this was built using:
